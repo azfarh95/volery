@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Volery — Get Started</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --ink: #0B0E17;
+    --ink-2: #0C1120;
+    --panel: #131A2A;
+    --panel-2: #182034;
+    --line: #26304A;
+    --line-soft: #1C243A;
+    --blue: #2E5BFF;
+    --blue-lite: #7C9BFF;
+    --blue-glow: rgba(46, 91, 255, .45);
+    --text: #EAEEF7;
+    --muted: #9AA6C2;
+    --faint: #67728F;
+    --good: #41C08A;
+    --warn: #E6B45A;
+    --bad: #E86C60;
+    --font-display: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    --maxw: 940px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  a { color: var(--blue-lite); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--blue-lite); outline-offset: 3px; border-radius: 3px; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--blue-lite);
+  }
+
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+
+  /* ── HERO ─────────────────────────────────────────────── */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line-soft); }
+  #flock {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    z-index: 0; opacity: .9;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    padding: 88px 24px 72px;
+    max-width: var(--maxw); margin: 0 auto;
+  }
+  .mark {
+    display: inline-flex; align-items: center; gap: 11px;
+    font-family: var(--font-mono); font-size: 13px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 30px;
+  }
+  .mark .glyph {
+    width: 30px; height: 30px; display: grid; place-items: center;
+    border: 1px solid var(--line); border-radius: 8px;
+    background: linear-gradient(160deg, #16203a, #0d1322);
+    box-shadow: inset 0 0 12px rgba(46, 91, 255, .25);
+    font-size: 15px;
+  }
+  h1 {
+    font-size: clamp(38px, 7vw, 68px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+  }
+  h1 .accent {
+    background: linear-gradient(92deg, var(--blue-lite), var(--blue));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lede {
+    font-size: clamp(17px, 2.4vw, 21px);
+    color: var(--muted);
+    max-width: 30em; margin: 22px 0 0;
+    line-height: 1.5;
+  }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 600; font-size: 15px;
+    padding: 12px 20px; border-radius: 10px;
+    border: 1px solid transparent; cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--blue); color: #fff;
+    box-shadow: 0 6px 22px -6px var(--blue-glow);
+  }
+  .btn-primary:hover { background: #3d68ff; text-decoration: none; }
+  .btn-ghost { border-color: var(--line); color: var(--text); background: rgba(255,255,255,.02); }
+  .btn-ghost:hover { border-color: var(--blue); text-decoration: none; }
+
+  .promise {
+    display: flex; align-items: flex-start; gap: 13px;
+    margin-top: 40px; padding: 16px 18px;
+    background: linear-gradient(180deg, rgba(46,91,255,.09), rgba(46,91,255,.03));
+    border: 1px solid rgba(46,91,255,.28); border-radius: 12px;
+    max-width: 40em;
+  }
+  .promise .k { font-size: 20px; line-height: 1.3; }
+  .promise p { margin: 0; font-size: 15px; color: var(--muted); }
+  .promise strong { color: var(--text); font-weight: 600; }
+
+  /* ── SECTIONS ─────────────────────────────────────────── */
+  section { padding: 66px 0; border-bottom: 1px solid var(--line-soft); }
+  .sec-head { margin-bottom: 34px; }
+  .sec-head h2 { font-size: clamp(24px, 4vw, 33px); font-weight: 750; letter-spacing: -0.01em; margin-top: 10px; }
+  .sec-head p { color: var(--muted); margin: 12px 0 0; max-width: 34em; }
+
+  /* Steps */
+  .step {
+    display: grid; grid-template-columns: 62px 1fr; gap: 22px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .step:first-of-type { border-top: 0; }
+  .step-no {
+    font-family: var(--font-mono); font-size: 30px; font-weight: 600;
+    color: var(--blue-lite); line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .step h3 { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+  .step p { margin: 10px 0 0; color: var(--muted); max-width: 42em; }
+  .step ol { margin: 12px 0 0; padding-left: 20px; color: var(--muted); }
+  .step ol li { margin: 7px 0; }
+  .step strong { color: var(--text); font-weight: 600; }
+
+  .cue {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--font-mono); font-size: 13px;
+    margin-top: 16px; padding: 9px 13px;
+    background: var(--ink-2); border: 1px solid var(--line-soft);
+    border-left: 2px solid var(--blue); border-radius: 7px;
+    color: var(--muted);
+  }
+  .cue b { color: var(--text); font-weight: 600; }
+
+  /* Model table */
+  .tbl-wrap { margin-top: 20px; overflow-x: auto; border: 1px solid var(--line-soft); border-radius: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 540px; }
+  thead th {
+    text-align: left; font-family: var(--font-mono); font-weight: 500;
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint);
+    padding: 13px 16px; background: var(--ink-2); border-bottom: 1px solid var(--line-soft);
+  }
+  tbody td { padding: 13px 16px; border-bottom: 1px solid var(--line-soft); color: var(--muted); vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover td { background: rgba(255,255,255,.015); }
+  td .name { color: var(--text); font-weight: 600; }
+  td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--text); }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+    padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+  }
+  .b-good { color: var(--good); background: rgba(65,192,138,.12); }
+  .b-warn { color: var(--warn); background: rgba(230,180,90,.12); }
+  .b-note { color: var(--muted); background: rgba(154,166,194,.1); }
+  .yes { color: var(--good); font-weight: 600; }
+  .no { color: var(--faint); }
+
+  .tip { margin-top: 18px; font-size: 15px; color: var(--muted); }
+  .tip strong { color: var(--text); }
+
+  /* Lanes */
+  .lanes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .lane {
+    background: var(--panel); border: 1px solid var(--line-soft); border-radius: 14px;
+    padding: 22px 20px;
+  }
+  .lane .ico { font-size: 26px; }
+  .lane h3 { font-size: 18px; font-weight: 700; margin-top: 12px; }
+  .lane .role { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-lite); margin-top: 3px; }
+  .lane p { color: var(--muted); font-size: 14.5px; margin: 11px 0 0; }
+  .lane.primary { border-color: rgba(46,91,255,.4); box-shadow: inset 0 0 40px -20px var(--blue-glow); }
+
+  /* Feature grid */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line-soft); border-radius: 14px; padding: 22px 20px;
+  }
+  .card h3 { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 9px; }
+  .card p { color: var(--muted); font-size: 14.5px; margin: 10px 0 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+  .chip {
+    font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+    padding: 4px 10px; border: 1px solid var(--line-soft); border-radius: 7px;
+    background: var(--ink-2);
+  }
+
+  /* Privacy strip */
+  .privacy {
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    padding: 24px; border: 1px solid rgba(46,91,255,.28); border-radius: 14px;
+    background: linear-gradient(180deg, rgba(46,91,255,.07), transparent);
+  }
+  .privacy .lock { font-size: 30px; }
+  .privacy p { margin: 0; color: var(--muted); flex: 1 1 260px; }
+  .privacy strong { color: var(--text); }
+
+  /* Footer */
+  footer { padding: 54px 0 70px; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+  .foot-note { color: var(--faint); font-size: 13.5px; margin-top: 28px; font-family: var(--font-mono); }
+
+  @media (max-width: 680px) {
+    body { font-size: 16px; }
+    .hero-inner { padding: 60px 22px 52px; }
+    .lanes, .grid { grid-template-columns: 1fr; }
+    .step { grid-template-columns: 44px 1fr; gap: 16px; }
+    .step-no { font-size: 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <canvas id="flock" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="mark"><span class="glyph">🐦</span> Volery · Get started</div>
+    <h1>Your first five minutes with <span class="accent">Scout</span>.</h1>
+    <p class="lede">Volery runs a real AI model <em>on your phone</em> — private, offline, no account.
+      This is the short path from a fresh install to your first answer.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#steps">Start the 3 steps ↓</a>
+      <a class="btn btn-ghost" href="https://github.com/azfarh95/volery/blob/main/docs/handbook.md">Open the full handbook</a>
+    </div>
+    <div class="promise">
+      <span class="k">💡</span>
+      <p><strong>One thing to know first:</strong> Volery ships without a model inside it (that keeps
+        the app small). Scout can't answer until you download one — <strong>once</strong>. Most of
+        this guide is that download. After it, Scout just works, offline, forever.</p>
+    </div>
+  </div>
+</div>
+
+<section id="device">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Before you start</span>
+      <h2>Will it run on your phone?</h2>
+      <p>Scout runs the model on your device, so it needs a reasonably modern phone. You don't have
+        to work this out yourself — Volery checks your phone and tells you exactly what it can run.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>📱 What Scout needs</h3>
+        <p>A 64-bit (arm64) Android phone on <strong>Android 8.0+</strong>, roughly <strong>6 GB of
+          RAM or more</strong>, and 2–4 GB free storage for the model. More RAM means bigger, smarter
+          models — 8 GB is comfortable, 11 GB+ runs the best model on the GPU.</p>
+      </div>
+      <div class="card">
+        <h3>🔎 Let the app decide</h3>
+        <p>In <b>Settings ▸ Scout</b>, the <strong>“This device”</strong> card gives a plain verdict
+          for your phone — and every model in the list gets a fit badge calculated for your RAM. On a
+          smaller phone you can still use <strong>Sage</strong>, a cloud model you bring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="steps">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The setup · about 5 minutes</span>
+      <h2>Get Scout running, in three steps</h2>
+    </div>
+
+    <div class="step">
+      <div class="step-no">01</div>
+      <div>
+        <h3>Open Volery and meet Scout</h3>
+        <p>A short welcome tour introduces the flock — <strong>🐦 Scout</strong> (on your phone),
+          <strong>☁️ Sage</strong> (a cloud model you bring), and the privacy promise. Tap through it
+          or Skip. You land in the chat on the Scout lane.</p>
+        <div class="cue">on screen · <b>“Ask Volery anything”</b> with a few starter prompts</div>
+        <p>Type a message now and Scout will say it can't start yet — that's expected. It needs a
+          model. Let's get one.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">02</div>
+      <div>
+        <h3>Download a model — the one-time part</h3>
+        <ol>
+          <li>Tap the <strong>gear ⚙</strong> (top-right) → open the <strong>🐦 Scout</strong> tab.</li>
+          <li>Under <strong>Model</strong>, tap <strong>“Browse models.”</strong> Each row shows its
+            size, a RAM estimate, and a fit badge for <em>your</em> phone.</li>
+          <li><strong>Pick the largest model showing a ✅</strong>, then tap <strong>Download</strong>
+            (2–4 GB — use Wi‑Fi). Volery double-checks before loading anything too big.</li>
+          <li>When it finishes — <strong>“Installed ✓ and set active”</strong> — you're done. You
+            never do this again.</li>
+        </ol>
+        <div class="cue">on screen · <b>“…52% (1.2 GB)”</b> → <b>“Installed ✓ and set active”</b></div>
+
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>Model</th><th>Size</th><th>Good for</th><th>Sees images</th><th>Fits a phone with</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="name">Gemma‑4 E4B</span></td>
+                <td class="num">3.4 GB</td>
+                <td>Best quality — the default</td>
+                <td><span class="yes">yes</span></td>
+                <td><span class="badge b-good">11 GB+ RAM</span></td>
+              </tr>
+              <tr>
+                <td><span class="name">Gemma‑4 E2B</span></td>
+                <td class="num">2.4 GB</td>
+                <td>Lighter, still sees images</td>
+                <td><span class="yes">yes</span></td>
+                <td><span class="badge b-good">7 GB+ RAM</span></td>
+              </tr>
+              <tr>
+                <td><span class="name">Phi‑4 mini</span></td>
+                <td class="num">3.6 GB</td>
+                <td>Strongest reasoning</td>
+                <td><span class="no">text only</span></td>
+                <td><span class="badge b-good">7 GB+ RAM</span></td>
+              </tr>
+              <tr>
+                <td><span class="name">Qwen2.5 1.5B</span></td>
+                <td class="num">1.5 GB</td>
+                <td>Compact all‑rounder</td>
+                <td><span class="no">text only</span></td>
+                <td><span class="badge b-warn">5–6 GB RAM</span></td>
+              </tr>
+              <tr>
+                <td><span class="name">Gemma 3 1B</span></td>
+                <td class="num">0.6 GB</td>
+                <td>Fastest, lowest RAM</td>
+                <td><span class="no">text only</span></td>
+                <td><span class="badge b-warn">5–6 GB RAM</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tip"><strong>Not sure?</strong> Trust the ✅/⚠️/❌ badge next to each model — it's
+          worked out for your phone. Want Scout to understand <strong>photos and screenshots</strong>?
+          Pick a <strong>Gemma‑4</strong> model.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">03</div>
+      <div>
+        <h3>Say hello</h3>
+        <p>Back in the chat, type anything — or tap a starter like <em>“Explain like I'm five.”</em>
+          The first message loads the model into memory; after that, replies are quick.</p>
+        <div class="cue">on screen · <b>“Scout is waking up… (first load can take a minute)”</b></div>
+        <p>🎉 <strong>That's Scout.</strong> It's now running entirely on your phone — turn off Wi‑Fi
+          and mobile data and it still answers. No account, nothing sent anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flock-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The flock</span>
+      <h2>Three lanes, one chat</h2>
+      <p>Switch between them with the chips at the top of the chat. Keep all three set up and pick per
+        message.</p>
+    </div>
+    <div class="lanes">
+      <div class="lane primary">
+        <div class="ico">🐦</div>
+        <h3>Scout</h3>
+        <div class="role">on your phone</div>
+        <p>Free, offline, private, no account. Runs the model you downloaded. Always there. Start here.</p>
+      </div>
+      <div class="lane">
+        <div class="ico">☁️</div>
+        <h3>Sage</h3>
+        <div class="role">a cloud model you bring</div>
+        <p>Want a bigger brain? Plug in your own provider — OpenAI, Claude, Groq, Gemini, or your own
+          computer. Your key, your data path.</p>
+      </div>
+      <div class="lane">
+        <div class="ico">🕊️</div>
+        <h3>Dove</h3>
+        <div class="role">the hive · advanced</div>
+        <p>Memory and tools on your own server. For the sideloaded owner build — hidden on the Play
+          version.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Once Scout's running</span>
+      <h2>What it can do</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>🧰 Tools it can use</h3>
+        <p>Turn tools on from the chat's tool tray. Scout handles them on the phone — and anything that
+          acts is pre‑filled for you to confirm, never sent on its own.</p>
+        <div class="chips">
+          <span class="chip">calculator</span><span class="chip">maps directions</span>
+          <span class="chip">calendar</span><span class="chip">contacts</span>
+          <span class="chip">alarms & timer</span><span class="chip">draft email / SMS</span>
+          <span class="chip">call</span><span class="chip">notes</span><span class="chip">time</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎙️ Voice notes → reports</h3>
+        <p>Hold to record a lecture or meeting; Scout turns the transcript into a clean, structured
+          report — on your phone. Or just tap the mic to dictate a message.</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Reach the web (optional)</h3>
+        <p>Add connector tools when you want them: Wikipedia, read‑a‑link and crypto need no key; web
+          search, weather and news take a free key you paste in.</p>
+      </div>
+      <div class="card">
+        <h3>🎨 Make it yours</h3>
+        <p>Rename Scout, give it a persona and an “about you”, switch theme and accent, pick an
+          appearance preset, text size and font. It answers the way you like.</p>
+      </div>
+    </div>
+
+    <div class="privacy" style="margin-top:22px">
+      <span class="lock">🔒</span>
+      <p><strong>Private by design.</strong> Scout runs 100% on your phone; your messages and your
+        tools' data — calendar, contacts, location, notes, voice — stay on the device. The only thing
+        that ever leaves is what you explicitly send to <strong>your own</strong> Sage provider.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="eyebrow">Keep going</span>
+    <h2 style="font-family:var(--font-display);font-weight:750;font-size:26px;letter-spacing:-.01em;margin-top:10px">The full handbook has the rest.</h2>
+    <p style="color:var(--muted);max-width:34em;margin-top:12px">Every feature in depth — Sage setup
+      provider by provider, the complete tool list, backups, and troubleshooting.</p>
+    <div class="foot-links">
+      <a class="btn btn-primary" href="https://github.com/azfarh95/volery/blob/main/docs/handbook.md">Read the handbook</a>
+      <a class="btn btn-ghost" href="https://github.com/azfarh95/volery/blob/main/docs/getting-started-scout.md">Scout guide (text)</a>
+      <a class="btn btn-ghost" href="https://github.com/azfarh95/volery/issues">Report a bug</a>
+    </div>
+    <p class="foot-note">Volery — a private, on-device AI for Android. Your phone is the model.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const canvas = document.getElementById('flock');
+    const ctx = canvas.getContext('2d');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W, H, dpr, birds = [];
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = canvas.clientWidth; H = canvas.clientHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    // A loose V-formation of birds drifting across, echoing the Volery mark.
+    function build() {
+      birds = [];
+      const flocks = 3;
+      for (let f = 0; f < flocks; f++) {
+        const n = 7;                       // birds per wing pair
+        const baseY = H * (0.18 + f * 0.22);
+        const baseX = W * (0.15 + f * 0.28);
+        const speed = 0.12 + f * 0.05;
+        const scale = 0.7 + f * 0.35;
+        for (let i = -n; i <= n; i++) {
+          const a = Math.abs(i);
+          birds.push({
+            hx: baseX + a * 22 * scale,           // formation offset (V opens leftward)
+            hy: baseY + i * 15 * scale,
+            x: 0, y: 0,
+            size: (5 + (n - a) * 0.7) * scale,
+            phase: Math.random() * Math.PI * 2,
+            wing: 0.5 + Math.random() * 0.4,
+            speed, drift: baseX
+          });
+        }
+      }
+    }
+
+    function bird(x, y, s, flap) {
+      // simple V/chevron wing shape with a blue glow
+      ctx.beginPath();
+      ctx.moveTo(x - s, y + s * flap * 0.5);
+      ctx.quadraticCurveTo(x, y - s * 0.35, x, y);
+      ctx.quadraticCurveTo(x, y - s * 0.35, x + s, y + s * flap * 0.5);
+      ctx.lineWidth = Math.max(1, s * 0.16);
+      ctx.strokeStyle = 'rgba(124,155,255,0.55)';
+      ctx.shadowColor = 'rgba(46,91,255,0.9)';
+      ctx.shadowBlur = s * 1.1;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+
+    let t = 0, raf;
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      t += 1;
+      for (const b of birds) {
+        b.drift += b.speed;
+        const wrapW = W + 120;
+        let x = ((b.hx + b.drift) % wrapW);
+        if (x > W + 60) x -= wrapW;
+        const bob = Math.sin((t * 0.03) + b.phase) * 4;
+        const flap = 0.6 + Math.sin((t * 0.12) + b.phase) * b.wing;
+        bird(x, b.hy + bob, b.size, flap);
+      }
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      resize(); build();
+      if (reduce) {
+        // draw a single static formation
+        for (const b of birds) bird((b.hx % (W)) , b.hy, b.size, 0.7);
+      } else {
+        cancelAnimationFrame(raf); frame();
+      }
+    }
+
+    let rt;
+    window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(start, 150); });
+    start();
+  })();
+</script>
+</body>
+</html>

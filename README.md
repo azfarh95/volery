@@ -48,8 +48,10 @@ The agents are birds gathered in a *volery* (a flock):
 
 New here? These get you from install to your first answer.
 
-- 📘 **[Get Scout running — a 3-step start](docs/getting-started-scout.md)** — the one-time setup
-  (download a model, say hello). Start here.
+- 🚀 **[Get started — the visual walkthrough](https://azfarh95.github.io/volery/)** — “your first
+  five minutes with Scout,” a single page you can open on your phone. Start here.
+- 📘 **[Get Scout running (text)](docs/getting-started-scout.md)** — the same 3-step setup as a
+  plain guide.
 - 📖 **[Handbook](docs/handbook.md)** — every feature in plain language: lanes, tools, voice notes,
   Sage setup, personalization, privacy, and troubleshooting.
 

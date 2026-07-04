@@ -44,6 +44,15 @@ The agents are birds gathered in a *volery* (a flock):
   explicitly send to **your own** Sage provider. Speech recognition prefers the on-device engine.
 - No analytics-driven profiles. See the [privacy policy](https://azfarh95.github.io/volery-legal/).
 
+## Guides
+
+New here? These get you from install to your first answer.
+
+- 📘 **[Get Scout running — a 3-step start](docs/getting-started-scout.md)** — the one-time setup
+  (download a model, say hello). Start here.
+- 📖 **[Handbook](docs/handbook.md)** — every feature in plain language: lanes, tools, voice notes,
+  Sage setup, personalization, privacy, and troubleshooting.
+
 ## Get it
 
 Volery is in **closed testing** on Google Play, heading to production.

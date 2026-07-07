@@ -237,6 +237,36 @@
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
   }
+
+  /* ── WHICH PATH chooser + step visuals ────────────────── */
+  .chooser { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 30px; }
+  .pathcard {
+    display: block; padding: 24px 24px 22px; border-radius: 16px;
+    border: 1px solid var(--line); background: var(--panel); color: var(--text);
+    transition: border-color .15s, transform .15s, box-shadow .15s;
+  }
+  .pathcard:hover { text-decoration: none; transform: translateY(-2px); }
+  .pathcard.scout { border-color: rgba(46,91,255,.42); box-shadow: inset 0 0 44px rgba(46,91,255,.07); }
+  .pathcard.scout:hover { border-color: var(--blue); box-shadow: inset 0 0 44px rgba(46,91,255,.12); }
+  .pathcard.sage { border-color: rgba(20,184,166,.42); box-shadow: inset 0 0 44px rgba(20,184,166,.07); }
+  .pathcard.sage:hover { border-color: #14B8A6; box-shadow: inset 0 0 44px rgba(20,184,166,.12); }
+  .pathtag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+  .pathcard.scout .pathtag { color: var(--blue-lite); }
+  .pathcard.sage .pathtag { color: #4fd6c4; }
+  .pathcard h3 { font-size: 26px; margin: 9px 0 9px; }
+  .pathcard p { margin: 0 0 16px; color: var(--muted); font-size: 15px; line-height: 1.5; }
+  .pathgo { font-weight: 600; font-size: 15px; }
+  .pathcard.scout .pathgo { color: var(--blue-lite); }
+  .pathcard.sage .pathgo { color: #4fd6c4; }
+  .stepshots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .stepshots figure { margin: 0; scroll-margin-top: 24px; }
+  .stepshots img {
+    width: 100%; height: auto; display: block; border-radius: 16px;
+    border: 1px solid var(--line); box-shadow: 0 10px 30px -12px rgba(0,0,0,.6);
+  }
+  @media (max-width: 700px) {
+    .chooser, .stepshots { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -259,6 +289,39 @@
     </div>
   </div>
 </div>
+
+<section id="paths">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Two ways in</span>
+      <h2>Which path is for you?</h2>
+      <p>Volery works two ways — pick one, or use both. <strong>Scout</strong> runs on your phone;
+        <strong>Sage</strong> plugs in a cloud model you bring.</p>
+    </div>
+    <div class="chooser">
+      <a class="pathcard scout" href="#scout-steps">
+        <span class="pathtag">On your phone</span>
+        <h3>🐦 Scout</h3>
+        <p>Free, fully offline, private — the AI model runs entirely on your device. No account,
+          and nothing you type leaves your phone.</p>
+        <span class="pathgo">See the 3 steps →</span>
+      </a>
+      <a class="pathcard sage" href="#sage-steps">
+        <span class="pathtag">Cloud · your key</span>
+        <h3>☁️ Sage</h3>
+        <p>Optional — bring your own cloud model (OpenAI, Anthropic, Gemini…) for the heavy lifts.
+          Your key stays on the device.</p>
+        <span class="pathgo">See the 3 steps →</span>
+      </a>
+    </div>
+    <div class="stepshots">
+      <figure id="scout-steps"><img src="img/steps-scout.png" loading="lazy"
+        alt="Scout setup in three steps: download a model, match it to your phone's RAM, then chat offline."></figure>
+      <figure id="sage-steps"><img src="img/steps-sage.png" loading="lazy"
+        alt="Sage setup in three steps: pick a provider, paste your own API key, then chat with a frontier model."></figure>
+    </div>
+  </div>
+</section>
 
 <section id="device">
   <div class="wrap">
